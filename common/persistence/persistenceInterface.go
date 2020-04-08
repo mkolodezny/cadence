@@ -254,6 +254,8 @@ type (
 		SignalInfos         map[int64]*SignalInfo
 		SignalRequestedIDs  map[string]struct{}
 		BufferedEvents      []*DataBlob
+
+		Checksum checksum.Checksum
 	}
 
 	// InternalActivityInfo details  for Persistence Interface
