@@ -2524,24 +2524,6 @@ func createReplicationInfoMap(
 	return rInfoMap
 }
 
-func createChecksum(result map[string]interface{}) checksum.Checksum {
-	csum := checksum.Checksum{}
-	if len(result) == 0 {
-		return csum
-	}
-	for k, v := range result {
-		switch k {
-		case "flavor":
-			csum.Flavor = checksum.Flavor(v.(int))
-		case "version":
-			csum.Version = v.(int)
-		case "value":
-			csum.Value = v.([]byte)
-		}
-	}
-	return csum
-}
-
 func isTimeoutError(err error) bool {
 	if err == gocql.ErrTimeoutNoResponse {
 		return true
